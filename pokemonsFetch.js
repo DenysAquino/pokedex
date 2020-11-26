@@ -1,5 +1,5 @@
 
-//
+
 //URL API POKEMON "https://pokeapi.co/"
 
 const container = document.querySelector('.container')
@@ -40,7 +40,3 @@ function searchData() {
 
 searchData();
 
-
-
-
-    
