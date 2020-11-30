@@ -4,15 +4,25 @@
     box-sizing: 0;
 }
 
+.box {
+    max-width: 1024px;
+}
+
 :root {
     font-size: 10px;
 }
 
 body {
-    background-color: #1d2224;
-    color: aliceblue;
+    background: #263238;
+    color: #000;
+}
+header {
+    background-color: #ef5350;
 }
 
+footer {
+    background-color: #ef5350;
+}
 //Imports SCSS
 
 @import 'sass/listPokemon';
