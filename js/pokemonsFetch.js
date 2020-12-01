@@ -7,7 +7,7 @@ const previous = document.querySelector('.previous');
 
 let offset = 0;
 let maxPokemon = 20;
-let limit = 0;
+let limit = 20;
 
 const colors = {
     fire: '#FDDFDF',
@@ -26,25 +26,30 @@ const colors = {
     normal: '#F5F5F5'
 };
 
-const getPokemonsApi = async () => {
-    
-    for(let i = 1; i < maxPokemon; i++) {
-        let descriptionPokemon = ''
+let count = 1;
+
+const getPokemonsApi = async() => {
+    let descriptionPokemon = ''
+
+    for(let i = 0; i < maxPokemon; i++) {
+        
         await fetch(`https://pokeapi.co/api/v2/pokemon/?offset=${offset}limit=${limit}`, {
             method: 'GET',
-            'content-type': 'application-json'
+            'content-type': 'application-json',
         })
         .then(response => response.json())
-        .then(data => {
-            fetch(`https://pokeapi.co/api/v2/pokemon-species/${i}`)
+        .then(data => {            
+
+            fetch(`https://pokeapi.co/api/v2/pokemon-species/${count}`,{
+                method: 'GET',
+                'content-type': 'application-json'
+            })
             .then(response => response.json())
             .then(data => {
-                console.log(`https://pokeapi.co/api/v2/pokemon-species/${i}`)
-                descriptionPokemon = data.flavor_text_entries[i].flavor_text
-                console.log(data.flavor_text_entries[i])
-            });
-            
-            fetch(`https://pokeapi.co/api/v2/pokemon/${data.results[i-1].name}`)
+                descriptionPokemon = data.flavor_text_entries[13].flavor_text
+            })
+
+            fetch(`https://pokeapi.co/api/v2/pokemon/${count}`)
             .then(response => response.json())
             .then(data => {
                 
@@ -54,7 +59,7 @@ const getPokemonsApi = async () => {
                 let types = ''
                 type2 === '' ? types = type1 : types = type1 + ' | ' + type2
                         
-                const color = colors[type1]
+                const color = colors[type1] !== undefined ? colors[type1] : colors[type2];
                 const pokemon = document.createElement('div')
                 pokemon.classList.add('pokemon')
                 pokemon.style.backgroundColor = color
@@ -72,28 +77,27 @@ const getPokemonsApi = async () => {
                 
                 pokemon.innerHTML = `${createPokemon} `
                 container.appendChild(pokemon)
-            });
+            })
         })
+        .catch(error => console.log("Erro" + error))
+      count++
     }
 }
 
 getPokemonsApi();
 
 next.addEventListener('click', () => {
-
     container.innerHTML = ''
     offset += 20;
-    limit += 20;
     getPokemonsApi();
 })
 
 
 previous.addEventListener('click', () => {
     if (offset >= 20) {
-
         container.innerHTML = ''
         offset -= 20;
-        limit -= 20;
+        count -= 40
         getPokemonsApi();
     }
 
