@@ -1,14 +1,49 @@
 .cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     width: 100%;
-    margin: 0 auto;
 
-    .title {
-        text-align: left;
-        padding: 1rem 0;
+    .cabecalho__title {
         font-size: 4rem;
         letter-spacing: 3px;
         @extend %font-poke;
-        margin: 0 2rem;
+    }
+}
+
+.search {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    .search__item {
+        border: #ff6865 solid 2px;
+        border-radius: 20px;
+        height: 2.5rem;
+        font-size: 1.5rem;
+        text-align: center;
+        text-align-last: left;
+        background-color:#ff8b89;
+        outline: 0;
+    }
+    .fa-search{
+        width: 3rem;
+        position: absolute;
+        margin-right: 2px;
+        padding: .5rem 0;
+        border-radius: 0 20px 20px 0;
+        cursor: pointer;
+        text-align: center;
+        right: 0;
+        background-color: #3761a8;
+        color: aliceblue;
+        font-size: 1.5rem;
+        transition: background-color .5s ease-out;
+
+        &:hover {
+            background-color: #5a78ad;
+            color: #feca1b;
+        }
     }
 }
 
@@ -58,7 +93,8 @@
     .pokemon__description {
         text-align: center;
         margin: 0 2rem;
-        font-size: 1.5rem;
+        font-size: 1.7rem;
+        line-height: 1.5;
     }
     .pokemon__type{
         font-size: 1.5rem;
@@ -114,7 +150,12 @@
 //Media 
 
 @media (max-width: 768px){
+    .cabecalho {
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
     .buttons {
         width: 90%;
     }
+    
 }

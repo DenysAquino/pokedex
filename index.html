@@ -1,33 +1,43 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
-    <title>Aprendendo Fetch</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="img/pokebola.png" type="image/x-icon">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+  <title>Pokédex Denys.Dev</title>
 </head>
+
 <body>
-    <header>
-        <div class="box cabecalho">
-            <h1 class="title">Pokédex</h1>
-        </div>
-    </header>
-    <main>
-        <section class="box container">
-        
-        </section>
-        <div class="box buttons">
-            <button class="previous">⇽ Prev.</button>
-            <button class="next">Next ⇾</button>
-        </div>
-    </main>
-    <footer>
-        <div class="box footer">
-            <p class="footer__text">Developed by Denys.Dev</p>
-        </div>
-    </footer>
-    <script type="text/javascript" src="js/pokemonsFetch.js"></script>
+  <header>
+    <div class="box cabecalho">
+      <h1 class="cabecalho__title">Pokédex<img src="img/pokebola.png" width="25" /></h1>
+        <label for="search-pokemon" class="search">
+          <input type="text" placeholder=" Pokemon name or id ..." class="search__item" id="search-pokemon">
+          <i class="fas fa-search"></i>
+        </label> 
+    </div>
+  </header>
+  <main>
+    <section class="box container">
+
+    </section>
+    <div class="box buttons">
+      <button class="previous">⇽ Prev.</button>
+      <button class="next">Next ⇾</button>
+    </div>
+  </main>
+  <footer>
+    <div class="box footer">
+      <p class="footer__text">Developed by Denys.Dev</p>
+    </div>
+  </footer>
+  <script type="text/javascript" src="js/pokemonsFetch.js"></script>
+  <script type="text/javascript" src="js/searchPokemon.js"></script>
 </body>
+
 </html>

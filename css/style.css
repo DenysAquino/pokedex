@@ -15,7 +15,7 @@
 
 body {
   background: #263238;
-  color: #000;
+  color: #555;
 }
 
 main {
@@ -33,6 +33,12 @@ main {
 
 header {
   background-color: #ef5350;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 footer {
@@ -40,16 +46,66 @@ footer {
 }
 
 .cabecalho {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 100%;
-  margin: 0 auto;
 }
 
-.cabecalho .title {
-  text-align: left;
-  padding: 1rem 0;
+.cabecalho .cabecalho__title {
   font-size: 4rem;
   letter-spacing: 3px;
-  margin: 0 2rem;
+}
+
+.search {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.search .search__item {
+  border: #ff6865 solid 2px;
+  border-radius: 20px;
+  height: 2.5rem;
+  font-size: 1.5rem;
+  text-align: center;
+  text-align-last: left;
+  background-color: #ff8b89;
+  outline: 0;
+}
+
+.search .fa-search {
+  width: 3rem;
+  position: absolute;
+  margin-right: 2px;
+  padding: .5rem 0;
+  border-radius: 0 20px 20px 0;
+  cursor: pointer;
+  text-align: center;
+  right: 0;
+  background-color: #3761a8;
+  color: aliceblue;
+  font-size: 1.5rem;
+  -webkit-transition: background-color .5s ease-out;
+  transition: background-color .5s ease-out;
+}
+
+.search .fa-search:hover {
+  background-color: #5a78ad;
+  color: #feca1b;
 }
 
 .container {
@@ -118,7 +174,8 @@ footer {
 .pokemon .pokemon__description {
   text-align: center;
   margin: 0 2rem;
-  font-size: 1.5rem;
+  font-size: 1.7rem;
+  line-height: 1.5;
 }
 
 .pokemon .pokemon__type {
@@ -178,12 +235,18 @@ footer {
 }
 
 @media (max-width: 768px) {
+  .cabecalho {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
   .buttons {
     width: 90%;
   }
 }
 
-.cabecalho .title, .footer .footer__text {
+.cabecalho .cabecalho__title, .footer .footer__text {
   font-family: 'Anton', sans-serif;
   color: #feca1b;
   -webkit-text-stroke-width: 1.5px;

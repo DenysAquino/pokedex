@@ -16,7 +16,7 @@
 
 body {
     background: #263238;
-    color: #000;
+    color: #555;
 }
 
 main{
@@ -27,6 +27,8 @@ main{
 
 header {
     background-color: #ef5350;
+    display: flex;
+    justify-content: center;
 }
 
 footer {
